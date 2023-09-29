@@ -10,9 +10,7 @@ const defaultState = {
   orderTotal: 0,
 };
 
-const getCartFromLocalStorage = () => {
-  return JSON.parse(localStorage.getItem('cart')) || defaultState;
-};
+// initialState === state
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -29,15 +27,46 @@ const cartSlice = createSlice({
       }
       state.numItemsInCart += product.amount;
       state.cartTotal += product.price * product.amount;
+
+      // console.log(cartSlice.caseReducers);
+      cartSlice.caseReducers.calculateTotals(state);
+
+      toast.success('Item added to cart');
+    },
+    clearCart: (state) => {
+      // overriding local storage cart.
+      localStorage.setItem('cart', JSON.stringify(defaultState));
+      // returned value will become new initialState
+      return defaultState;
+    },
+    removeItem: (state, action) => {
+      const { cartID } = action.payload;
+      const product = state.cartItems.find((i) => i.cartID === cartID);
+      state.cartItems = state.cartItems.filter((i) => i.cartID !== cartID);
+
+      state.numItemsInCart -= product.amount;
+      state.cartTotal -= product.price * product.amount;
+
+      cartSlice.caseReducers.calculateTotals(state);
+      toast.error('Items removed from cart');
+    },
+    editItem: (state, action) => {
+      const { cartID, amount } = action.payload;
+      const item = state.cartItems.find((i) => i.cartID === cartID);
+      // numItemsInCart + new amount - current amount of products
+      state.numItemsInCart += amount - item.amount;
+      state.cartTotal += item.price * (amount - item.amount);
+      item.amount = amount;
+      cartSlice.caseReducers.calculateTotals(state);
+      toast.success('Cart updated');
+    },
+
+    // utils
+    calculateTotals: (state) => {
       state.tax = 0.1 * state.cartTotal;
       state.orderTotal = state.cartTotal + state.shipping + state.tax;
       localStorage.setItem('cart', JSON.stringify(state));
-      toast.success('Item added to cart');
     },
-    clearCart: (state) => {},
-    removeItem: (state) => {},
-    clearCart: (state, action) => {},
-    editItem: (state, action) => {},
   },
 });
 
