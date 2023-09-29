@@ -4,8 +4,9 @@ import ProductsList from './ProductsList';
 import { useLoaderData } from 'react-router-dom';
 import { BsGridFill, BsList } from 'react-icons/bs';
 const ProductsContainer = () => {
-  const { meta } = useLoaderData();
+  const { meta, products } = useLoaderData();
   // console.log(meta);
+  console.log(products);
   const totalProducts = meta.pagination.total;
 
   const [layout, setLayout] = useState('grid');
@@ -44,7 +45,7 @@ const ProductsContainer = () => {
           Sorry, no products matched your search...
         </h5>
       ) : layout === 'grid' ? (
-        <ProductsGrid />
+        <ProductsGrid data={products} />
       ) : (
         <ProductsList />
       )}

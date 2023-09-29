@@ -1,11 +1,13 @@
 import SectionTitle from './SectionTitle';
 import ProductsGrid from './ProductsGrid';
+import { useLoaderData } from 'react-router-dom';
 
-const FeaturedProducts = () => {
+const FeaturedProducts = ({ data }) => {
+  const { products } = useLoaderData();
   return (
     <div className='pt-24'>
       <SectionTitle text='featured products' />
-      <ProductsGrid />
+      <ProductsGrid data={products} />
     </div>
   );
 };
