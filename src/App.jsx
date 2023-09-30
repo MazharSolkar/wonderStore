@@ -22,7 +22,7 @@ import {
 import { ErrorElement } from './components';
 
 // loader
-import { loader as landingLoader } from './pages/Landing';
+import { loader as landingFeaturedLoader } from './pages/Landing';
 import { loader as productLoader } from './pages/Products';
 import { loader as singleProductLoader } from './pages/SingleProduct';
 
@@ -39,7 +39,7 @@ const App = () => {
           index: true,
           element: <Landing />,
           errorElement: <ErrorElement />,
-          loader: landingLoader,
+          loader: landingFeaturedLoader,
         },
         {
           path: 'products',
