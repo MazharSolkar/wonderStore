@@ -27,10 +27,12 @@ import { loader as productLoader } from './pages/Products';
 import { loader as singleProductLoader } from './pages/SingleProduct';
 import { loader as checkoutLoader } from './pages/Checkout';
 
+import { store } from './store';
+
 // actions
 import { action as registerAction } from './pages/Register';
 import { action as loginAction } from './pages/Login';
-import { store } from './store';
+import { action as checkoutAction } from './components/CheckoutForm';
 
 const App = () => {
   const router = createBrowserRouter([
@@ -69,6 +71,7 @@ const App = () => {
           path: 'checkout',
           element: <Checkout />,
           loader: checkoutLoader(store),
+          action: checkoutAction(store),
         },
         {
           path: 'orders',
