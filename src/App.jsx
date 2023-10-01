@@ -25,6 +25,7 @@ import { ErrorElement } from './components';
 import { loader as landingFeaturedLoader } from './pages/Landing';
 import { loader as productLoader } from './pages/Products';
 import { loader as singleProductLoader } from './pages/SingleProduct';
+import { loader as checkoutLoader } from './pages/Checkout';
 
 // actions
 import { action as registerAction } from './pages/Register';
@@ -67,6 +68,7 @@ const App = () => {
         {
           path: 'checkout',
           element: <Checkout />,
+          loader: checkoutLoader(store),
         },
         {
           path: 'orders',
