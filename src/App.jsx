@@ -26,6 +26,7 @@ import { loader as landingFeaturedLoader } from './pages/Landing';
 import { loader as productLoader } from './pages/Products';
 import { loader as singleProductLoader } from './pages/SingleProduct';
 import { loader as checkoutLoader } from './pages/Checkout';
+import { loader as ordersLoader } from './pages/Orders';
 
 import { store } from './store';
 
@@ -76,6 +77,7 @@ const App = () => {
         {
           path: 'orders',
           element: <Orders />,
+          loader: ordersLoader(store),
         },
       ],
     },
