@@ -41,6 +41,8 @@ export const action =
         error?.response?.data?.error?.message ||
         'there was an error placing your order';
       toast.error(errorMessage);
+      // 401 : client is unauthorized (invalid token)  403 : token is missing
+      if (error?.response?.status === 401 || 403) return redirect('/login');
       return null;
     }
   };
