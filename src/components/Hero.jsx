@@ -15,10 +15,12 @@ const Hero = () => {
         </h1>
 
         <p className='mt-8 max-w-xl text-lg leading-8'>
-          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
-          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat
-          aliqua. Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
-          qui lorem cupidatat commodo.
+          Join our community of satisfied customers who have discovered the
+          convenience and joy of shopping with us. Explore our wide range of
+          products, discover amazing deals and promotions, and experience the
+          future of online retail. Thank you for choosing Wonder Store, where
+          shopping meets innovation, and your satisfaction is our top priority.
+          Start browsing, and let the adventure begin!
         </p>
         <div className='mt-10 '>
           <Link to='products' className='btn btn-primary '>

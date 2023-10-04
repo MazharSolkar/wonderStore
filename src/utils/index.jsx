@@ -6,12 +6,20 @@ export const customFetch = axios.create({
   baseURL: productionUrl,
 });
 
-export const formatPrice = (price) => {
-  const dollarsAmount = new Intl.NumberFormat('en-US', {
+// export const formatPrice = (price) => {
+//   const dollarsAmount = new Intl.NumberFormat('en-US', {
+//     style: 'currency',
+//     currency: 'USD',
+//   }).format((price / 100).toFixed(2));
+//   return dollarsAmount;
+// };
+
+export const formatPrice = (priceInCents) => {
+  const rupeesAmount = new Intl.NumberFormat('en-IN', {
     style: 'currency',
-    currency: 'USD',
-  }).format((price / 100).toFixed(2));
-  return dollarsAmount;
+    currency: 'INR',
+  }).format((priceInCents / 100).toFixed(0));
+  return rupeesAmount;
 };
 
 export const generateAmountOptions = (number) => {

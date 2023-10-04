@@ -16,11 +16,12 @@ const About = () => {
         </div>
       </div>
       <p className='mt-6 text-lg leading-8 max-w-2xl mx-auto'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat fugit
-        explicabo, maxime possimus perspiciatis provident cumque ipsum impedit
-        magnam beatae delectus assumenda ipsam voluptas iure consectetur nemo
-        quo quaerat ad, error qui exercitationem accusantium nesciunt? Commodi
-        quo aut dignissimos libero.
+        Join our community of satisfied customers who have discovered the
+        convenience and joy of shopping with us. Explore our wide range of
+        products, discover amazing deals and promotions, and experience the
+        future of online retail. Thank you for choosing Wonder Store, where
+        shopping meets innovation, and your satisfaction is our top priority.
+        Start browsing, and let the adventure begin!
       </p>
     </>
   );
